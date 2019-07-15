@@ -6,11 +6,15 @@ module.exports = {
    lintOnSave: false,
    assetsDir: "static",
    outputDir: 'server',
+   chainWebpack(config) {
+      
+      config.plugins.delete('prefetch'); // 移除 prefetch 插件
+
+   },
    configureWebpack(data) {
 
       const config = {
          target: 'node',
-         // devtool: 'source-map',
          entry: `./src/entry.server.js`,
          output: {
             libraryTarget: 'commonjs2'
@@ -26,7 +30,7 @@ module.exports = {
             new webpack.DefinePlugin({
                'process.env.NODE_ENV': 'development',
                'process.env.VUE_ENV': 'server'
-             }),
+            }),
             // 创建供服务端渲染的打包文件，默认输出`vue-ssr-server-bundle.json`
             new VueSSRServerPlugin(),
          ]
