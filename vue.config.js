@@ -7,8 +7,7 @@ if (SSR === 'server') {
 
 // ssr客户端渲染配置
 else if (SSR === 'client') {
-   module.exports = require("./config/ssr.server.c.js");
-   // module.exports = require("./config/ssr.client.js");
+   module.exports = require("./config/ssr.client.js");
 }
 
 // 无ssr的纯客户端渲染配置，使用默认src/main.js作为入口

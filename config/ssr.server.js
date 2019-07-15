@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const VueSSRServerPlugin = require("vue-server-renderer/server-plugin");
-// const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
@@ -26,12 +25,10 @@ module.exports = {
          plugins: [
             new webpack.DefinePlugin({
                'process.env.NODE_ENV': 'development',
-               'process.env.VUE_ENV': '"server"'
+               'process.env.VUE_ENV': 'server'
              }),
             // 创建供服务端渲染的打包文件，默认输出`vue-ssr-server-bundle.json`
             new VueSSRServerPlugin(),
-            // 创建供客户端状态激活的map文件，默认输出`vue-ssr-client-manifest.json`
-            // new VueSSRClientPlugin()
          ]
       }
 

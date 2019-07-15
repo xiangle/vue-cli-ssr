@@ -1,10 +1,11 @@
+const cwd = process.cwd();
 const fs = require("fs");
 const path = require("path");
 const serverRenderer = require("vue-server-renderer");
-const bundle = require('./vue-ssr-server-bundle.json');
-const clientManifest = require('./vue-ssr-client-manifest.json');
+const bundle = require('../vue-ssr-server-bundle.json');
+const clientManifest = require('../../dist/vue-ssr-client-manifest.json');
 
-const template = fs.readFileSync(path.resolve(__dirname, 'index.template.html'), "utf-8");
+const template = fs.readFileSync(path.resolve(cwd, 'server/template/index.html'), "utf-8");
 
 const renderer = serverRenderer.createBundleRenderer(bundle, {
    template,

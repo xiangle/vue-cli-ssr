@@ -1,8 +1,10 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" @click="click" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <layout-default>
+    <div class="home">
+      <img alt="Vue logo" src="../assets/logo.png" @click="click" />
+      <HelloWorld msg="Welcome to Your Vue.js App" />
+    </div>
+  </layout-default>
 </template>
 
 <script>
