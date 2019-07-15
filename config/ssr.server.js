@@ -14,6 +14,7 @@ module.exports = {
    configureWebpack(data) {
 
       const config = {
+         devtool: false,
          target: 'node',
          entry: `./src/entry.server.js`,
          output: {
