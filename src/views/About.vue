@@ -7,16 +7,23 @@
 </template>
 
 <script>
+import pageExtends from "@/extends/page.js";
 import layoutDefault from "@/layout/default.vue";
 export default {
-  components: {
-    layoutDefault
+  extends: pageExtends,
+  components: { layoutDefault },
+  async serverPrefetch(data) {
+    this.$header({
+      title: `header about ssr`,
+      description: `about ssr description`
+    });
   },
   data() {
     return {
       title: "This is an about page"
     };
   },
+  created() {},
   methods: {
     click() {
       this.title = "7777";

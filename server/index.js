@@ -8,10 +8,10 @@ const cwd = process.cwd();
 app.use(koaStatic(path.resolve(cwd, 'dist')));
 
 if (process.env.NODE_ENV === 'production') {
-   const controller = require('./controller/production.js');
+   const controller = require('./production.js');
    app.use(controller);
 } else {
-   const controller = require('./controller/production.js');
+   const controller = require('./development.js');
    app.use(controller);
 }
 
