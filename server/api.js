@@ -34,6 +34,17 @@ app.get('/', function (req, res) {
 
 })
 
+app.get('/news', function (req, res) {
+
+  res.append('Access-Control-Allow-Origin', '*');
+  res.append('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+
+  const content = generateList(40);
+
+  res.send(content);
+
+})
+
 app.get('/news/details/*', function (req, res) {
 
   res.append('Access-Control-Allow-Origin', '*');

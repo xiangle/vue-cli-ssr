@@ -22,7 +22,7 @@
 import axios from "axios";
 // import listContext from "@/context/list.js";
 import pageExtends from "@/extends/page.js";
-import content from "./content.vue";
+import content from "./_content.vue";
 
 export default {
   extends: pageExtends,
@@ -37,8 +37,8 @@ export default {
   methods: {
     async initPage() {
       this.$header({
-        title: `home hello ssr`,
-        description: `ssr description`
+        title: `home`,
+        description: `home description`
       });
       const list = await this.getList();
       this.$mixin({ list });

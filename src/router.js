@@ -16,13 +16,13 @@ export default {
     {
       path: '/news',
       component() {
-        return import(/* webpackChunkName: "about" */ './views/news/list.vue');
+        return import(/* webpackChunkName: "news" */ './views/news/list.vue');
       }
     },
     {
       path: '/news/details/*',
       component() {
-        return import(/* webpackChunkName: "about" */ './views/news/details.vue');
+        return import(/* webpackChunkName: "news_details" */ './views/news/details.vue');
       }
     }
   ]

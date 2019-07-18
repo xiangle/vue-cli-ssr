@@ -31,14 +31,14 @@ export default {
   methods: {
     async initPage() {
       this.$header({
-        title: `home hello ssr`,
-        description: `ssr description`
+        title: `news`,
+        description: `news description`
       });
       const list = await this.getList();
       this.$mixin({ list });
     },
     async getList() {
-      const { data } = await axios.get("http://localhost:9600");
+      const { data } = await axios.get("http://localhost:9600/news");
       return data;
     },
     click() {

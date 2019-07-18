@@ -30,11 +30,11 @@ export default {
   },
   methods: {
     async initPage() {
-      this.$header({
-        title: `header about ssr`,
-        description: `about ssr description`
-      });
       const details = await this.getDetails();
+      this.$header({
+        title: details.title + '- news',
+        description: details.past
+      });
       this.$mixin(details);
     },
     async getDetails() {

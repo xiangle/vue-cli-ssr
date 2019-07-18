@@ -30,7 +30,7 @@ export default {
     },
     async getDetails() {
       return {
-        title: "about ssr",
+        title: "about",
         description: "about description"
       };
     }
