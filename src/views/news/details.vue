@@ -3,7 +3,8 @@
     <vue-header></vue-header>
     <div class="about">
       <h1>{{title}}</h1>
-      <div>{{description}}</div>
+      <div>{{details.a}}</div>
+      <div>{{details.b}}</div>
     </div>
     <vue-footer></vue-footer>
   </div>
@@ -15,8 +16,8 @@ export default {
   extends: pageExtends,
   data() {
     return {
-      title: "",
-      description: ""
+      title: "This is an about page",
+      details: {}
     };
   },
   methods: {
@@ -26,12 +27,12 @@ export default {
         description: `about ssr description`
       });
       const details = await this.getDetails();
-      this.$mixin(details);
+      this.$mixin({ details });
     },
     async getDetails() {
       return {
-        title: "about ssr",
-        description: "about description"
+        a: 666,
+        b: 888
       };
     }
   },

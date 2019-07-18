@@ -1,6 +1,9 @@
 export default {
    state() {
-      return {}
+      return {
+         a: 1,
+         b: 2
+      }
    },
    mutations: {
       assign(state, data) {

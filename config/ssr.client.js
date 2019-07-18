@@ -1,13 +1,14 @@
 const webpack = require('webpack');
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
+const webpackBase = require('./webpack.base.js');
 
 module.exports = {
    lintOnSave: false,
    assetsDir: "static",
-   configureWebpack() {
+   configureWebpack(config) {
 
       return {
-         devtool: false, // 调试map
+         ...webpackBase,
          optimization: {
             minimize: true
          },
@@ -28,7 +29,6 @@ module.exports = {
    chainWebpack(config) {
 
       config.plugins.delete('prefetch'); // 移除 prefetch 插件
-
       config.plugins.delete('html');
       config.plugins.delete('preload');
 

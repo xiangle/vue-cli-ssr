@@ -27,8 +27,6 @@ export default context => {
          //    });
          // }
 
-         // const list = [];
-
          // for (const item of matchedComponents) {
 
          //    const { header } = item;
@@ -42,28 +40,20 @@ export default context => {
          //       }
          //    }
 
-         //    item.extends = extend;
-
          //    item._Ctor = Vue.extend(item);
 
          // }
 
-         // Promise.all(list).then(function () {
-
-         //    context.state = store.state;
-
-         //    resolve(app); // Promise返回值必须为app
-
-         // }).catch(reject);
-
          // This `rendered` hook is called when the app has finished rendering
          context.rendered = () => {
+
             // After the app is rendered, our store is now
             // filled with the state from our components.
             // When we attach the state to the context, and the `template` option
             // is used for the renderer, the state will automatically be
             // serialized and injected into the HTML as `window.__INITIAL_STATE__`.
-            context.state = store.state
+            context.state = store.init_state;
+
          }
 
          resolve(app); // Promise返回值必须为app

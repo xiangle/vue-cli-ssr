@@ -10,6 +10,8 @@ const template = fs.readFileSync(path.resolve(cwd, 'server/index.html'), "utf-8"
 const renderer = serverRenderer.createBundleRenderer(bundle, {
    template,
    clientManifest,
+   shouldPreload() { },
+   shouldPrefetch() { },
    runInNewContext: false
 })
 

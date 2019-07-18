@@ -1,6 +1,6 @@
 ## vue-cli-ssr
 
-基于vue-cli、koa.js构建的ssr应用模板。
+基于vue 2.6、vue-cli、koa.js构建的ssr应用模板。
 
 主要目的是为了摆脱nuxt.js的束缚，在基于vue-cli构建项目的基础上平滑过渡到ssr。
 
