@@ -3,13 +3,14 @@
     <vue-header></vue-header>
     <div class="home">
       <img alt="Vue logo" src="../../assets/logo.png" @click="click" />
-      <vue-content msg="Welcome to Your Vue.js App" />
-      <h3>{{name}}</h3>
+      <vue-content msg="Welcome to Your Vue.js SSR App" />
       <div>
         <div class="list" v-for="(item, index) of list" :key="index">
-          <span>{{item.title}}</span>
-          <span>{{item.past}}</span>
-          <span>{{item.paragraphs}}</span>
+          <router-link :to="'/news/details/'+ index">
+            <span>{{item.title}}</span>
+            <span>{{item.past}}</span>
+            <span>{{item.paragraphs}}</span>
+          </router-link>
         </div>
       </div>
     </div>
@@ -30,7 +31,6 @@ export default {
   },
   data() {
     return {
-      name: 343,
       list: []
     };
   },

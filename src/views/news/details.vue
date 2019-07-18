@@ -1,23 +1,31 @@
 <template>
   <div class="main">
     <vue-header></vue-header>
-    <div class="about">
+    <div class="details">
       <h1>{{title}}</h1>
-      <div>{{details.a}}</div>
-      <div>{{details.b}}</div>
+      <div>{{past}}</div>
+      <div>{{name}}</div>
+      <div>{{phone}}</div>
+      <div>{{email}}</div>
+      <div>{{paragraphs}}</div>
     </div>
     <vue-footer></vue-footer>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import pageExtends from "@/extends/page.js";
 export default {
   extends: pageExtends,
   data() {
     return {
-      title: "This is an about page",
-      details: {}
+      title: "",
+      past: "",
+      name: "",
+      phone: "",
+      email: "",
+      paragraphs: ""
     };
   },
   methods: {
@@ -27,13 +35,11 @@ export default {
         description: `about ssr description`
       });
       const details = await this.getDetails();
-      this.$mixin({ details });
+      this.$mixin(details);
     },
     async getDetails() {
-      return {
-        a: 666,
-        b: 888
-      };
+      const { data } = await axios.get("http://localhost:9600/news/details/1");
+      return data;
     }
   },
   async serverPrefetch(data) {
@@ -44,3 +50,11 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+.details {
+  div {
+    padding: 5px 10px;
+  }
+}
+</style>
