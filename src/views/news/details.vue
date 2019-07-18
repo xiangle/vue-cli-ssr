@@ -15,9 +15,7 @@
 
 <script>
 import axios from "axios";
-import pageExtends from "@/extends/page.js";
 export default {
-  extends: pageExtends,
   data() {
     return {
       title: "",

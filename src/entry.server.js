@@ -1,4 +1,8 @@
+import Vue from 'vue';
 import Base from './base.js';
+import server from './mixing/server.js';
+
+Vue.mixin(server);
 
 export default context => {
 

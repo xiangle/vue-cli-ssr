@@ -10,9 +10,7 @@
 </template>
 
 <script>
-import pageExtends from "@/extends/page.js";
 export default {
-  extends: pageExtends,
   data() {
     return {
       title: "",

@@ -21,11 +21,9 @@
 <script>
 import axios from "axios";
 // import listContext from "@/context/list.js";
-import pageExtends from "@/extends/page.js";
 import content from "./_content.vue";
 
-export default {
-  extends: pageExtends,
+export default { 
   components: {
     "vue-content": content
   },

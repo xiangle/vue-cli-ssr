@@ -19,10 +19,8 @@
 <script>
 import axios from "axios";
 // import listContext from "@/context/list.js";
-import pageExtends from "@/extends/page.js";
 
 export default {
-  extends: pageExtends,
   data() {
     return {
       list: []

@@ -1,7 +1,10 @@
 import Vue from 'vue';
 import Base from './base.js';
+import client from './mixing/client.js';
 
 const { router, store, app } = Base();
+
+Vue.mixin(client);
 
 // wait until router has resolved all async before hooks
 // and async components...
