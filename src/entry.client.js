@@ -6,8 +6,6 @@ const { router, store, app } = Base();
 
 Vue.mixin(client);
 
-// wait until router has resolved all async before hooks
-// and async components...
 router.onReady(() => {
 
   const matchedComponents = router.getMatchedComponents();

@@ -3,14 +3,15 @@ const path = require('path')
 const MFS = require('memory-fs')
 const webpack = require('webpack')
 const chokidar = require('chokidar')
-const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
+const VueSSRClientPlugin = require("vue-server-renderer/client-plugin")
+const manifest = require("../public/manifest.json")
 
-const readFile = (fs, file) => {
-   try {
-     return fs.readFileSync(path.join(clientConfig.output.path, file), 'utf-8')
-   } catch (e) { }
- }
- 
+// const readFile = (fs, file) => {
+//    try {
+//      return fs.readFileSync(path.join(clientConfig.output.path, file), 'utf-8')
+//    } catch (e) { }
+//  }
+
 module.exports = {
    lintOnSave: false,
    assetsDir: "static",
@@ -31,9 +32,7 @@ module.exports = {
                'process.env.VUE_ENV': 'client'
             }),
             new VueSSRClientPlugin(), // 生成供客户端激活的map文件
-            new webpack.DllReferencePlugin({
-               manifest: require("../public/manifest.json")
-            }),
+            new webpack.DllReferencePlugin({ manifest }),
          ]
       }
 
@@ -45,4 +44,7 @@ module.exports = {
       config.plugins.delete('preload');
 
    },
+   devServer: {
+
+   }
 }

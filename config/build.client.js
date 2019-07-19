@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
+const manifest = require("../public/manifest.json");
 
 module.exports = {
    lintOnSave: false,
@@ -21,9 +22,7 @@ module.exports = {
                'process.env.VUE_ENV': 'client'
             }),
             new VueSSRClientPlugin(), // 生成供客户端激活的map文件
-            new webpack.DllReferencePlugin({
-               manifest: require("../public/manifest.json")
-            }),
+            new webpack.DllReferencePlugin({ manifest }),
          ]
       }
 
