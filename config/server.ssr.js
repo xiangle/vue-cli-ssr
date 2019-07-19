@@ -1,14 +1,26 @@
-const webpack = require('webpack');
+const fs = require('fs')
+const path = require('path')
+const MFS = require('memory-fs')
+const webpack = require('webpack')
+const chokidar = require('chokidar')
 const VueSSRClientPlugin = require("vue-server-renderer/client-plugin");
-const webpackBase = require('./webpack.base.js');
 
+const readFile = (fs, file) => {
+   try {
+     return fs.readFileSync(path.join(clientConfig.output.path, file), 'utf-8')
+   } catch (e) { }
+ }
+ 
 module.exports = {
    lintOnSave: false,
    assetsDir: "static",
    configureWebpack(config) {
 
       return {
-         ...webpackBase,
+         devtool: false, // 调试map
+         performance: {
+            hints: false
+         },
          optimization: {
             minimize: true
          },

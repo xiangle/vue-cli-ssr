@@ -1,16 +1,18 @@
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require("vue-server-renderer/server-plugin");
-const webpackBase = require('./webpack.base.js');
 
 module.exports = {
    lintOnSave: false,
    outputDir: 'server',
    configureWebpack(data) {
 
-      const config = {
-         ...webpackBase,
+      return {
          target: 'node',
+         devtool: false, // 调试map
+         performance: {
+            hints: false
+         },
          entry: `./src/entry.server.js`,
          output: {
             libraryTarget: 'commonjs2'
@@ -28,18 +30,6 @@ module.exports = {
             new VueSSRServerPlugin(),
          ]
       }
-
-      // serverCompiler.watch({}, (err, stats) => {
-
-      //    if (err) {
-      //       throw err;
-      //    }
-
-      //    console.log(stats);
-
-      // });
-
-      return config;
 
    },
 }

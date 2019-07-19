@@ -2,14 +2,12 @@
   <div class="main">
     <vue-header></vue-header>
     <div class="home">
-      <div>
-        <div class="list" v-for="(item, index) of list" :key="index">
-          <router-link :to="'/news/details/'+ index">
-            <span>{{item.title}}</span>
-            <span>{{item.past}}</span>
-            <span>{{item.paragraphs}}</span>
-          </router-link>
-        </div>
+      <div class="list" v-for="(item, index) of list" :key="index">
+        <router-link :to="'/news/details/'+ index">
+          <h3>{{item.title}}</h3>
+          <span>{{item.past}}</span>
+          <span>{{item.paragraphs}}</span>
+        </router-link>
       </div>
     </div>
     <vue-footer></vue-footer>
@@ -38,9 +36,6 @@ export default {
     async getList() {
       const { data } = await axios.get("http://localhost:9600/news");
       return data;
-    },
-    click() {
-      console.log(111);
     }
   },
   async serverPrefetch() {

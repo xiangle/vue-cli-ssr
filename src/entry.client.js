@@ -16,18 +16,6 @@ router.onReady(() => {
 
   for (const item of matchedComponents) {
 
-    // const extend = {
-    //   data() {
-    //     return __INITIAL_STATE__;
-    //   },
-    // };
-
-    // if (item.extends) {
-    //   Object.assign(item.extends, extend);
-    // } else {
-    //   item.extends = extend;
-    // }
-
     // 为mounted加锁，首次调用时不执行，防止重复操作
     const { mounted } = item;
     if (mounted) {

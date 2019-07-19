@@ -4,14 +4,12 @@
     <div class="home">
       <img alt="Vue logo" src="../../assets/logo.png" @click="click" />
       <vue-content msg="Welcome to Your Vue.js SSR App" />
-      <div>
-        <div class="list" v-for="(item, index) of list" :key="index">
-          <router-link :to="'/news/details/'+ index">
-            <span>{{item.title}}</span>
-            <span>{{item.past}}</span>
-            <span>{{item.paragraphs}}</span>
-          </router-link>
-        </div>
+      <div class="list" v-for="(item, index) of list" :key="index">
+        <router-link :to="'/news/details/'+ index">
+          <h3>{{item.title}}</h3>
+          <span>{{item.past}}</span>
+          <span>{{item.paragraphs}}</span>
+        </router-link>
       </div>
     </div>
     <vue-footer></vue-footer>
@@ -23,7 +21,7 @@ import axios from "axios";
 // import listContext from "@/context/list.js";
 import content from "./_content.vue";
 
-export default { 
+export default {
   components: {
     "vue-content": content
   },
@@ -46,12 +44,12 @@ export default {
       return data;
     },
     click() {
-      console.log(111);
+      console.log("click");
     }
   },
   async serverPrefetch() {
-    await this.initPage();
     // const ssrData = listContext(this.$ssrContext);
+    await this.initPage();
   },
   async mounted() {
     await this.initPage();
