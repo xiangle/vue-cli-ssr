@@ -1,6 +1,7 @@
-const cwd = process.cwd();
 const path = require("path");
 const webpack = require("webpack");
+
+const cwd = process.cwd();
 const outputPath = path.join(cwd, 'public');
 
 module.exports = {

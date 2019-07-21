@@ -5,7 +5,7 @@ const VueSSRServerPlugin = require("vue-server-renderer/server-plugin");
 module.exports = {
    lintOnSave: false,
    outputDir: 'server',
-   configureWebpack(data) {
+   configureWebpack(config) {
 
       return {
          target: 'node',

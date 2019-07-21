@@ -49,3 +49,11 @@ src/entry.client.js
 ```
 src/entry.server.js
 ```
+
+### npm命令
+
+#### npm run serve:data
+
+随机数据服务器
+
+#### npm run serve:data
